@@ -18,6 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import java.nio.charset.*;
+
+
 public class Terminal extends TerminalView {
 
     private PtyProcess process;
@@ -59,6 +62,7 @@ public class Terminal extends TerminalView {
     public void onTerminalReady() {
         ThreadHelper.start(() -> {
             try {
+                System.out.println("onTerminalReady start");
                 initializeProcess();
             } catch (final Exception e) {
             }
@@ -87,6 +91,9 @@ public class Terminal extends TerminalView {
         columnsProperty().addListener(evt -> updateWinSize());
         rowsProperty().addListener(evt -> updateWinSize());
         updateWinSize();
+        //Charset.forName("IBM852")
+        //Charset.forName("UTF8")
+
         setInputReader(new BufferedReader(new InputStreamReader(process.getInputStream())));
         setErrorReader(new BufferedReader(new InputStreamReader(process.getErrorStream())));
         setOutputWriter(new BufferedWriter(new OutputStreamWriter(process.getOutputStream())));
