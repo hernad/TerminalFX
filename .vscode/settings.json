@@ -1,0 +1,8 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "git.ignoreLimitWarning": true,
+    "java.project.referencedLibraries": [
+        "c:\\openjfx\\javafx-sdk-14.0.1\\lib\\*.jar"
+    ],
+    "java.home": "c:\\AdoptOpenJDK\\jdk-14.0.1.7-hotspot"
+}

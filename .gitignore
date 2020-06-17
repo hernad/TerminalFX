@@ -1,7 +1,7 @@
 ## Eclipse folder
-.classpath
-.settings
-.project
+#.classpath
+#.settings
+#.project
 
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
