@@ -19,12 +19,12 @@ import java.io.Reader;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
-import java.nio.charset.*;
-import java.nio.*;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Worker;
+//import java.nio.charset.*;
+//import java.nio.*;
+//
+//import javafx.beans.value.ChangeListener;
+//import javafx.beans.value.ObservableValue;
+//import javafx.concurrent.Worker;
 
 public class TerminalView extends Pane {
 

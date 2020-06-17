@@ -23,16 +23,6 @@
                 "--add-modules=javafx.graphics",
                 "--module-path=c:/openjfx/javafx-sdk-14.0.1/lib"
             ],
-            "classPaths": [
-                "c:/dev/TerminalFX/target/classes",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx.base.jar",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx-swt.jar",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx.controls.jar",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx.fxml.jar",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx.graphics.jar",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx.media.jar",
-                "c:/openjfx/javafx-sdk-14.0.1/lib/javafx.web.jar"
-            ]
         },
         {
             "type": "java",

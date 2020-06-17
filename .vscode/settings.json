@@ -1,5 +1,5 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "git.ignoreLimitWarning": true,
     "java.project.referencedLibraries": [
         "c:\\openjfx\\javafx-sdk-14.0.1\\lib\\*.jar"
