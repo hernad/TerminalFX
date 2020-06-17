@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "libapps/nassh/",
+			"problemMatcher": [],
+			"label": "npm: install - libapps/nassh",
+			"detail": "install dependencies from package",
+			
+		},
+		{
+			"type": "shell",
+			"command": "set MAVEN_OPTS=\"-agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:55112\" && mvn javafx:run",
+			"label": "mvnDebug javafx:run",
+			"detail": "maven javafx:run"			
+		}
+
+	]
+}
