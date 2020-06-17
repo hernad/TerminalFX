@@ -115,23 +115,19 @@ public class TerminalView extends Pane {
 
 	@WebkitCall(from = "hello")
 	public void resizeTerminal(int columns, int rows) {
-		System.out.println("JAVA: resizeTerminal");
+		//System.out.println("JAVA: resizeTerminal");
 		columnsProperty.set(columns);
 		rowsProperty.set(rows);
 	}
 
 	@WebkitCall
 	public void onTerminalInit() {
-		System.out.println("java onTerminalInit");
+		//System.out.println("java onTerminalInit");
 		ThreadHelper.runActionLater(() -> {
 			getChildren().add(webView);
 		}, true);
 	}
 
-	@WebkitCall
-	public void fromJavaScript(String msg) {
-		System.out.println(msg);
-	}
 
 	@WebkitCall
 	public void log(String msg) {
@@ -139,11 +135,16 @@ public class TerminalView extends Pane {
 	}
 
 	@WebkitCall
+	public void warn(String msg) {
+		System.out.println("WARN: Invoked from JavaScript: " + msg);
+	}
+
+	@WebkitCall
 	/**
 	 * Internal use only
 	 */
 	public void onTerminalReady() {
-		System.out.println("java onTerminalReady");
+		//System.out.println("java onTerminalReady");
 		ThreadHelper.start(() -> {
 			try {
 				focusCursor();
@@ -165,7 +166,7 @@ public class TerminalView extends Pane {
 
 				String str = new String(readData);
 				// str += "┐─┬╵│└├┘┤┴┼šŠ";
-				System.out.println("PrintReader: " + str);
+				//System.out.println("PrintReader: " + str);
 				print(str);
 
 			}
@@ -177,7 +178,7 @@ public class TerminalView extends Pane {
 
 	@WebkitCall(from = "hello")
 	public void copy(String text) {
-		System.out.println("JAVA: copy");
+		//System.out.println("JAVA: copy");
 		final Clipboard clipboard = Clipboard.getSystemClipboard();
 		final ClipboardContent clipboardContent = new ClipboardContent();
 		clipboardContent.putString(text);
@@ -185,7 +186,7 @@ public class TerminalView extends Pane {
 	}
 
 	public void onTerminalFxReady(Runnable onReadyAction) {
-		System.out.println("JAVA: onTerminalFXReady");
+		//System.out.println("JAVA: onTerminalFXReady");
 		ThreadHelper.start(() -> {
 			ThreadHelper.awaitLatch(countDownLatch);
 
@@ -196,7 +197,7 @@ public class TerminalView extends Pane {
 	}
 
 	protected void print(String text) {
-		System.out.println("JAVA: print");
+		//System.out.println("JAVA: print");
 		ThreadHelper.awaitLatch(countDownLatch);
 		ThreadHelper.runActionLater(() -> {
 			getTerminalIO().call("print", text);
@@ -205,7 +206,7 @@ public class TerminalView extends Pane {
 	}
 
 	public void focusCursor() {
-		System.out.println("JAVA: focusCursor");
+		//System.out.println("JAVA: focusCursor");
 		ThreadHelper.runActionLater(() -> {
 			webView.requestFocus();
 			getTerminal().call("focus");
@@ -213,11 +214,11 @@ public class TerminalView extends Pane {
 	}
 
 	private JSObject getTerminal() {
-		return (JSObject) webEngine().executeScript("t");
+		return (JSObject) webEngine().executeScript("window.t");
 	}
 
 	private JSObject getTerminalIO() {
-		return (JSObject) webEngine().executeScript("t.io");
+		return (JSObject) webEngine().executeScript("window.t.io");
 	}
 
 	public JSObject getWindow() {
@@ -246,7 +247,7 @@ public class TerminalView extends Pane {
 	}
 
 	public int getColumns() {
-		System.out.println("getColumns" + String.valueOf(columnsProperty.get()));
+		//System.out.println("getColumns" + String.valueOf(columnsProperty.get()));
 		return columnsProperty.get();
 	}
 
@@ -255,7 +256,7 @@ public class TerminalView extends Pane {
 	}
 
 	public int getRows() {
-		System.out.println("getRows" + String.valueOf(rowsProperty.get()));
+		//System.out.println("getRows" + String.valueOf(rowsProperty.get()));
 		return rowsProperty.get();
 	}
 
