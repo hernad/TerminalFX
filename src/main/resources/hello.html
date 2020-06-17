@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hterm test page</title>
+    <meta charset='utf-8'/>
+    <!-- head definitions go here -->
+
+
+</head>
+
+<body>
+    <div id="terminal"></div>
+    kraj
+    <button onclick="add_comp()">Click me for okkk</button>
+
+    <!---  <script src="hterm_all.min.js"></script>
+   -->
+    <script src="bundle.js"></script>
+    <script>
+        
+        function component() {
+            const element = document.createElement('div');
+
+            // Lodash, currently included via a script, is required for this line to work
+            element.innerHTML = 'hello div';
+
+            return element;
+        }
+
+        function add_comp() {
+            document.body.appendChild(component());
+            //java.log("JAVA LOG: add comp");
+            console.fromJavaScript("hello from add_comp on button click");
+
+            console.log("typeof console.log: " + (typeof console.log));
+            console.log("typeof startTerminal: " + (typeof startTerminal));
+
+            //startTerminal();
+            console.log("end add_comp");
+        }
+
+
+        //document.addEventListener("DOMContentLoaded", function (event) {
+        //    console.log("DOMContentLoaded");
+        //    lib.init(startTerminal);
+        //});
+
+        console.log("CONSOLE.LOG: hello from javascript");
+        document.body.appendChild(component());
+
+
+    </script>
+
+</body>
+
+</html>
