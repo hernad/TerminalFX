@@ -85,6 +85,7 @@ public class TerminalView extends Pane {
 
 	@WebkitCall(from = "hterm")
 	public void resizeTerminal(int columns, int rows) {
+		System.out.println(String.valueOf(columns) + "x" + String.valueOf(rows));
 		columnsProperty.set(columns);
 		rowsProperty.set(rows);
 	}

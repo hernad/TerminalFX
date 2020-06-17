@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DefaultTabNameGenerator implements TabNameGenerator {
 
     private AtomicInteger counter = new AtomicInteger();
-    private String prefix = "Terminal ";
+    private String prefix = "TerminalFX ";
 
     @Override
     public String next() {
